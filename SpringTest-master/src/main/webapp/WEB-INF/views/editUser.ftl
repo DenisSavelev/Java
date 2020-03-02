@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Change</title>
+    <style>
+        .color-text {
+            color: white;
+            margin-left: 35%;
+        }
+    </style>
 </head>
-<body>
-<form name="user" action="/updateUser" method="post">
+<body background="https://99px.ru/sstorage/86/2017/07/image_862907170556056830109.gif">
+<div class="color-text">
+<form name="modelDicitionary" action="/updateUser" method="post">
     <p>Id</p>
-    <input title="Name" type="text" name="id" value="${user.id}">
+    <input title="Name" type="text" name="id" value="${modelDicitionary.id}">
     <p>Name</p>
-    <input title="Name" type="text" name="russian" value="${user.russian}">
+    <input title="Name" type="text" name="russian" value="${modelDicitionary.russian}">
     <p>Value</p>
-    <input title="Value" type="text" name="english" value="${user.english}">
+    <input title="Value" type="text" name="english" value="${modelDicitionary.english}">
     <input type="submit" value="OK">
 </form>
+</div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 package org.example.controller;
 
-import org.example.entity.User;
+import org.example.Model.ModelDicitionary;
 import org.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,15 +17,11 @@ public class UserController {
         this.userService = userService;
     }
 
-
     @GetMapping("/")
     public String index(){
         return "index";
     }
-    @GetMapping("/hello")
-    public String hello(){
-        return "hello";
-    }
+
     @GetMapping("/users")
     public String getAllUsers(Model model){
         model.addAttribute("users",userService.findAll());
@@ -33,7 +29,7 @@ public class UserController {
     }
     @PostMapping("/userW")
     public String getByName(@RequestParam("russian") String russian, Model model){
-        model.addAttribute("user", userService.getByRussian(russian));
+        model.addAttribute("modelDicitionary", userService.getByRussian(russian));
         return "showUser";
     }
     @GetMapping("/addUser")
@@ -43,15 +39,15 @@ public class UserController {
 
 
     @PostMapping("/addUser")
-    public String addUser(@ModelAttribute("user") User user){
-        userService.save(user);
+    public String addUser(@ModelAttribute("modelDicitionary") ModelDicitionary modelDicitionary){
+        userService.save(modelDicitionary);
         return "redirect:/users";
     }
 
     @PostMapping("/updateUser")
-    public String updateUser(@ModelAttribute("user") User user)
+    public String updateUser(@ModelAttribute("modelDicitionary") ModelDicitionary modelDicitionary)
     {
-        userService.update(user);
+        userService.update(modelDicitionary);
         return "redirect:/users";
     }
 
@@ -62,7 +58,7 @@ public class UserController {
     }
     @GetMapping("/update/{id}")
     public String update(@PathVariable("id") int id, Model model){
-        model.addAttribute("user",userService.getById(id));
+        model.addAttribute("modelDicitionary",userService.getById(id));
         return "editUser";
     }
 }

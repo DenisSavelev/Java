@@ -1,11 +1,8 @@
 package org.example.config;
 
-import org.example.DAO.UserDao;
-import org.example.DAO.UserDaoImpl;
-import org.example.service.UserService;
-import org.example.service.UserServiceIml;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.example.DAO.*;
+import org.example.service.*;
+import org.springframework.context.annotation.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -27,11 +24,11 @@ public class SpringConfig {
         return dataSource;
     }
     @Bean
-    public UserDao getUserDao(){
-        return new UserDaoImpl(getJdbcTemplate());
+    public DAOI getUserDao(){
+        return new DAO(getJdbcTemplate());
     }
     @Bean
     public UserService getUserService(){
-        return new UserServiceIml();
+        return new Service();
     }
 }

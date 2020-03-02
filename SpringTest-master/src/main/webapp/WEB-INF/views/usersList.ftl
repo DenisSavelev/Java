@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Dictionary</title>
     <style type="text/css">
         H1 {
             font-size: 3em;
